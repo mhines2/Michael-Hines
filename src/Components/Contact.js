@@ -2,6 +2,49 @@ import React, { Component } from "react";
 import { Fade, Slide } from "react-reveal";
 
 class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      success: false,
+      error: false,
+    };
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Form submission started");
+    this.setState({ loading: true, success: false, error: false });
+
+    try {
+      const form = e.target;
+      console.log("Submitting to:", form.action);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      console.log("Response status:", response.status);
+      const responseData = await response.json();
+      console.log("Response data:", responseData);
+
+      if (response.ok) {
+        console.log("Submission successful");
+        this.setState({ loading: false, success: true });
+        form.reset();
+      } else {
+        console.log("Submission failed");
+        this.setState({ loading: false, error: true });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      this.setState({ loading: false, error: true });
+    }
+  };
+
   render() {
     if (!this.props.data) return null;
 
@@ -32,7 +75,13 @@ class Contact extends Component {
         <div className="row">
           <Slide left duration={1000}>
             <div className="eight columns">
-              <form action="" method="post" id="contactForm" name="contactForm">
+              <form
+                action={process.env.REACT_APP_FORMSPREE_ENDPOINT}
+                method="POST"
+                id="contactForm"
+                name="contactForm"
+                onSubmit={this.handleSubmit}
+              >
                 <fieldset>
                   <div>
                     <label htmlFor="contactName">
@@ -43,8 +92,8 @@ class Contact extends Component {
                       defaultValue=""
                       size="35"
                       id="contactName"
-                      name="contactName"
-                      onChange={this.handleChange}
+                      name="name"
+                      required
                     />
                   </div>
 
@@ -53,12 +102,12 @@ class Contact extends Component {
                       Email <span className="required">*</span>
                     </label>
                     <input
-                      type="text"
+                      type="email"
                       defaultValue=""
                       size="35"
                       id="contactEmail"
-                      name="contactEmail"
-                      onChange={this.handleChange}
+                      name="_replyto"
+                      required
                     />
                   </div>
 
@@ -69,8 +118,7 @@ class Contact extends Component {
                       defaultValue=""
                       size="35"
                       id="contactSubject"
-                      name="contactSubject"
-                      onChange={this.handleChange}
+                      name="subject"
                     />
                   </div>
 
@@ -82,68 +130,54 @@ class Contact extends Component {
                       cols="50"
                       rows="15"
                       id="contactMessage"
-                      name="contactMessage"
+                      name="message"
+                      required
                     ></textarea>
                   </div>
 
                   <div>
-                    <button className="submit">Submit</button>
-                    <span id="image-loader">
-                      <img alt="" src="images/loader.gif" />
-                    </span>
+                    <button
+                      type="submit"
+                      className="submit"
+                      disabled={this.state.loading}
+                    >
+                      {this.state.loading ? "Sending..." : "Submit"}
+                    </button>
+                    {this.state.loading && (
+                      <span id="image-loader">
+                        <img alt="" src="images/loader.gif" />
+                      </span>
+                    )}
                   </div>
                 </fieldset>
               </form>
 
-              <div id="message-warning"> Error boy</div>
-              <div id="message-success">
-                <i className="fa fa-check"></i>Your message was sent, thank you!
-                <br />
-              </div>
+              {this.state.error && (
+                <div id="message-warning">
+                  Something went wrong. Please try again.
+                </div>
+              )}
+              {this.state.success && (
+                <div id="message-success">
+                  <i className="fa fa-check"></i>Your message was sent, thank
+                  you!
+                  <br />
+                </div>
+              )}
             </div>
           </Slide>
 
           <Slide right duration={1000}>
             <aside className="four columns footer-widgets">
               <div className="widget widget_contact">
-                <h4>Address and Phone</h4>
+                <h4>Contact Details</h4>
                 <p className="address">
                   {name}
                   <br />
-                  {street} <br />
                   {city}, {state} {zip}
                   <br />
-                  <span>{phone}</span>
+                  <span>Email: mthines2003@gmail.com</span>
                 </p>
-              </div>
-
-              <div className="widget widget_tweets">
-                <h4 className="widget-title">Latest Tweets</h4>
-                <ul id="twitter">
-                  <li>
-                    <span>
-                      This is Photoshop's version of Lorem Ipsum. Proin gravida
-                      nibh vel velit auctor aliquet. Aenean sollicitudin, lorem
-                      quis bibendum auctor, nisi elit consequat ipsum
-                      <a href="./">http://t.co/CGIrdxIlI3</a>
-                    </span>
-                    <b>
-                      <a href="./">2 Days Ago</a>
-                    </b>
-                  </li>
-                  <li>
-                    <span>
-                      Sed ut perspiciatis unde omnis iste natus error sit
-                      voluptatem accusantium doloremque laudantium, totam rem
-                      aperiam, eaque ipsa quae ab illo inventore veritatis et
-                      quasi
-                      <a href="./">http://t.co/CGIrdxIlI3</a>
-                    </span>
-                    <b>
-                      <a href="./">3 Days Ago</a>
-                    </b>
-                  </li>
-                </ul>
               </div>
             </aside>
           </Slide>

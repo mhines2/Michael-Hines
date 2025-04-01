@@ -1,166 +1,150 @@
 {
   "main": {
-    "name":"Michael Hines",
-    "description":"Computer Science Student | Aspiring Software Engineer | Fitness Enthusiast", 
-    "image":"profilepic.jpg",
-    "bio":"Use this bio section as your way of describing yourself and saying what you do, what technologies you like to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing in.",
-    "contactmessage":"Here is where you should write your message to readers to have them get in contact with you.",
+    "name": "Michael Hines",
+    "description": "Computer Science Student | Aspiring Software Engineer | Fitness Enthusiast",
+    "image": "profilepic.jpg",
+    "bio": "Originally from the Washington D.C. area, I'm a senior Computer Science student at the University of Notre Dame's College of Engineering, with a minor in Engineering Corporate Practice. After graduation, I'll be joining IBM as an Associate Security Consultant. I'm passionate about leveraging technology for good, exploring generative AI, and embracing continuous growth - whether mentoring students, developing software, or pushing myself in the gym.",
+    "contactmessage": "Feel free to reach out to me for any opportunities or collaborations:",
     "email": "mthines2003@gmail.com",
-    "address":{
-      "street":"(Your Street)",
-      "city":"(Your City)",
-      "state":"(Your State)",
-      "zip": "(Your Zip/Postal Code)"
+    "address": {
+      "street": "",
+      "city": "Alexandria",
+      "state": "VA",
+      "zip": ""
     },
-    "website": "http://www.timbakerdev.com",
-    "resumedownload":"http://timbakerdev.com",
-    "social":[
+    "website": "https://michael-hines.vercel.app",
+    "resumedownload": "/michael_hines_resume.pdf",
+    "social": [
       {
-        "name":"linkedin",
-        "url":"https://www.linkedin.com/in/tim-baker-8420009a/",
-        "className":"fa fa-linkedin"
+        "name": "linkedin",
+        "url": "https://linkedin.com/in/michael-hines21",
+        "className": "fa fa-linkedin"
       },
       {
-        "name":"github",
-        "url":"https://github.com/nordicgiant2/react-nice-resume",
-        "className":"fa fa-github"
+        "name": "github",
+        "url": "https://github.com/mhines2",
+        "className": "fa fa-github"
       }
     ]
   },
-  "resume":{
-    "skillmessage":"Here you can create a short write-up of your skills to show off to employers",
-    "education":[
+  "resume": {
+    "skillmessage": "Proficient in full-stack development, embedded system design, and software engineering practices:",
+    "education": [
       {
-        "school":"University?",
-        "degree":"Masters in Beer tasting",
-        "graduated":"April 2017",
-        "description":"Describe your experience at school, what you learned, what useful skills you have acquired etc."
+        "school": "University of Notre Dame - College of Engineering | Notre Dame, IN",
+        "degree": "Bachelor of Science in Computer Science, Minor in Engineering Corporate Practice",
+        "graduated": "August 2021 - May 2025",
+        "description": "GPA: 3.9 | Activities/Societies: Strength & Weight Training, ND Powerlifting Club, Morrissey Hall Government and St. André Committee, Jam ND (Drummer), Interhall Soccer"
       },
       {
-        "school":"School #1 Maybe College?",
-        "degree":"What did you study 101",
-        "graduated":"March 2013",
-        "description":"Describe your experience at school, what you learned, what useful skills you have acquired etc."
+        "school": "University College Dublin | Dublin, Ireland",
+        "degree": "Engineering Study Abroad Experience",
+        "graduated": "May 2023 - July 2023",
+        "description": "Completed a six-week summer study abroad program through the University of Notre Dame's College of Engineering, taking two electrical engineering courses while gaining valuable cultural experience."
+      },
+      {
+        "school": "St. Stephen's and St. Agnes School | Alexandria, VA",
+        "degree": "High School Diploma",
+        "graduated": "September 2017 - June 2021",
+        "description": "GPA: 4.0 | Activities/Societies: Salutatorian, Head's List (2017-2021), Cum Laude Society, Jazz Ensemble (Drummer), Stage One Players Set Design and Construction Crew, Asians Coming Together Club, JV/Varsity Soccer, Latin Honors Society, Saints Mathletes"
       }
     ],
-    "work":[
+    "work": [
       {
-        "company":"Awesome Design Studio",
-        "title":"Senior UX God ",
-        "years":"March 2018 - Present",
-        "description":"Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
+        "company": "IBM | Chicago, IL",
+        "title": "Incoming Associate Security Consultant",
+        "years": "July 2025",
+        "description": ""
       },
       {
-        "company":"Super Cool Studio",
-        "title":"Junior bug fixer",
-        "years":"March 2017 - February 2018",
-        "description":"Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
+        "company": "Programming Challenges | Notre Dame, IN",
+        "title": "Teaching Assistant",
+        "years": "August 2024 - Present",
+        "description": "Hosted weekly office hours to mentor students in complex problem-solving techniques and code debugging, while grading assignments with an emphasis on algorithmic efficiency, appropriate data structures, and best software engineering practices."
+      },
+      {
+        "company": "Yelo | Notre Dame, IN",
+        "title": "Brand Ambassador",
+        "years": "August 2023 - Present",
+        "description": "Pioneered a campus-wide marketing campaign for Yelo (previously Desi), a student-founded social ride network, achieving over 2,500 downloads (15% of ND students) and successfully onboarding 120+ student drivers within the first month."
       }
     ],
-    "skills":[
+    "skills": [
       {
-        "name":"Python",
-        "level":"60%"
+        "name": "Python",
+        "level": "90%"
       },
       {
-        "name":"VueJs",
-        "level":"55%"
+        "name": "C/C++",
+        "level": "75%"
       },
       {
-        "name":"ReactJs",
-        "level":"50%"
+        "name": "JavaScript",
+        "level": "65%"
       },
       {
-        "name":"CSS",
-        "level":"90%"
+        "name": "Java",
+        "level": "60%"
       },
       {
-        "name":"PHP",
-        "level":"80%"
+        "name": "Django",
+        "level": "70%"
       },
       {
-        "name":"Swift",
-        "level":"50%"
+        "name": "HTML",
+        "level": "80%"
       },
       {
-        "name":"JAVA",
-        "level":"80%"
+        "name": "Linux",
+        "level": "65%"
+      },
+      {
+        "name": "GitHub",
+        "level": "85%"
+      },
+      {
+        "name": "RISC-V Assembly",
+        "level": "70%"
+      },
+      {
+        "name": "MATLAB",
+        "level": "70%"
+      },
+      {
+        "name": "Excel",
+        "level": "80%"
       }
     ]
   },
-  "portfolio":{
+  "portfolio": {
     "projects": [
       {
-        "title":"Canadian Wanderlust",
-        "category":"My Travel Blog for my post-university travels",
-        "image":"01.jpg",
-        "url":"https://www.canadianwanderlust.com"
+        "title": "AI Personal Trainer",
+        "category": "Developing a trainer using ChatGPT API for personalized strength/weight training analysis.",
+        "image": "01.jpg",
+        "url": "https://ai-personal-trainer1.streamlit.app/",
+        "github": "https://github.com/mhines2/ai-personal-trainer"
       },
       {
-        "title":"Fury Fighting Gear",
-        "category":"(offline now) A fighting gear company I started",
-        "image":"02.jpg",
-        "url":"http://www.timbakerdev.com"
+        "title": "Wordle Web Application",
+        "category": "A Wordle-inspired game using Python, Django, JavaScript, HTML, and CSS, featuring user authentication, gameplay mechanics, player dashboard, and in-game purchases.",
+        "image": "02.jpg",
+        "url": "https://github.com/mhines2/worNDly",
+        "github": "https://github.com/mhines2/worNDly"
       },
       {
-        "title":"Original Thai Food",
-        "category":"Website I built for a restaurant I like in Thailand",
-        "image":"03.jpg",
-        "url":"http://www.timbakerdev.com/originalthaifood.github.io"
+        "title": "Valentine's Proposal Website",
+        "category": "A simple but charming web page built with JavaScript, HTML, and CSS to ask someone special to be your Valentine.",
+        "image": "03.jpg",
+        "url": "https://mhines2.github.io/valentines-proposal/",
+        "github": "https://github.com/mhines2/valentines-proposal"
       },
       {
-        "title":"Resume Website",
-        "category":"A React based resume website template",
-        "image":"04.jpg",
-        "url":"http://www.timbakerdev.com"
-      },
-      {
-        "title":"Smirkspace",
-        "category":"(MVP Only) A React and Meteor based chat University project.",
-        "image":"05.jpg",
-        "url":"http://www.smirkspace.com"
-      },
-      {
-        "title":"Canadian Wanderlust",
-        "category":"My Travel Blog for my post-university travels",
-        "image":"06.jpg",
-        "url":"https://www.canadianwanderlust.com"
-      },
-      {
-        "title":"Fury Fighting Gear",
-        "category":"(offline now) A fighting gear company I started",
-        "image":"01.jpg",
-        "url":"http://www.timbakerdev.com"
-      },
-      {
-        "title":"Original Thai Food",
-        "category":"Website I built for a restaurant I like in Thailand",
-        "image":"02.jpg",
-        "url":"http://www.timbakerdev.com/originalthaifood.github.io"
-      },
-      {
-        "title":"Original Thai Food",
-        "category":"Website I built for a restaurant I like in Thailand",
-        "image":"03.jpg",
-        "url":"http://www.timbakerdev.com/originalthaifood.github.io"
-      },
-      {
-        "title":"Resume Website",
-        "category":"A React based resume website template",
-        "image":"04.jpg",
-        "url":"http://www.timbakerdev.com"
-      },
-      {
-        "title":"Smirkspace",
-        "category":"(MVP Only) A React and Meteor based chat University project.",
-        "image":"05.jpg",
-        "url":"http://www.smirkspace.com"
-      },
-      {
-        "title":"Canadian Wanderlust",
-        "category":"My Travel Blog for my post-university travels",
-        "image":"06.jpg",
-        "url":"https://www.canadianwanderlust.com"
+        "title": "Personal Website",
+        "category": "A personal website built with React, showcasing my skills, projects, and experience.",
+        "image": "04.jpg",
+        "url": "https://github.com/mhines2/Michael-Hines",
+        "github": "https://github.com/mhines2/Michael-Hines"
       }
     ]
   }
