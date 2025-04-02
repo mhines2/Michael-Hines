@@ -17,7 +17,7 @@ A modern, responsive personal portfolio website showcasing my skills, projects, 
 ## Tech Stack
 
 - **Frontend Framework**: React.js
-- **Styling**: CSS3 with responsive design
+- **Styling**: CSS with responsive design
 - **Animations**: React Reveal for scroll animations
 - **Background Effects**: Particles.js for interactive background
 - **Form Handling**: Formspree for serverless form submissions
