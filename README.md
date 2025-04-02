@@ -14,10 +14,10 @@ A modern, responsive personal portfolio website showcasing my skills, projects, 
 - 🔗 Social media integration (LinkedIn, GitHub)
 - 📄 Downloadable resume
 
-## Tech Stack
+## Technologies Used
 
 - **Frontend Framework**: React.js
-- **Styling**: CSS with responsive design
+- **Styling**: CSS3 with responsive design
 - **Animations**: React Reveal for scroll animations
 - **Background Effects**: Particles.js for interactive background
 - **Form Handling**: Formspree for serverless form submissions
