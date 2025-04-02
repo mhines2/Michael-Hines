@@ -14,15 +14,25 @@ A modern, responsive personal portfolio website showcasing my skills, projects, 
 - 🔗 Social media integration (LinkedIn, GitHub)
 - 📄 Downloadable resume
 
-## Technologies Used
+## Tech Stack
 
-- **Frontend Framework**: React.js
-- **Styling**: CSS3 with responsive design
-- **Animations**: React Reveal for scroll animations
-- **Background Effects**: Particles.js for interactive background
-- **Form Handling**: Formspree for serverless form submissions
-- **Deployment**: GitHub Pages
-- **Version Control**: Git
+### Frontend
+
+- ⚛️ React.js - Main framework
+- 🎨 CSS3 - Styling and responsive design
+- 🌟 React Reveal - Scroll animations
+- ✨ Particles.js - Interactive background
+
+### APIs & Services
+
+- 📨 Formspree - Form handling and email service
+- 🚀 GitHub Pages - Hosting and deployment
+
+### Development Tools
+
+- 📦 npm - Package management
+- 🔧 Git - Version control
+- 💻 VS Code - IDE
 
 ## Local Development
 
