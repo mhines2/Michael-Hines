@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Zmage from "react-zmage";
 import Fade from "react-reveal";
+import "../styles/portfolio.css";
 
 let id = 0;
 class Portfolio extends Component {
@@ -13,26 +14,30 @@ class Portfolio extends Component {
       return (
         <div key={id++} className="columns portfolio-item">
           <div className="item-wrap">
-            <a href={projects.github} target="_blank" rel="noopener noreferrer">
-              <div className="portfolio-image-container">
-                <Zmage alt={projects.title} src={projectImage} />
-                <div className="overlay">
-                  <div className="portfolio-item-meta">
-                    <h5>{projects.title}</h5>
-                    <p>{projects.category}</p>
-                  </div>
+            <Zmage alt={projects.title} src={projectImage} />
+            <div className="overlay">
+              <div className="portfolio-item-meta">
+                <h5>{projects.title}</h5>
+                <p>{projects.category}</p>
+                <div className="project-links">
+                  <a
+                    href={projects.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link github-link"
+                  >
+                    <i className="fa fa-github"></i> GitHub
+                  </a>
+                  <a
+                    href={projects.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link demo-link"
+                  >
+                    <i className="fa fa-external-link"></i> Live Demo
+                  </a>
                 </div>
               </div>
-            </a>
-            <div style={{ textAlign: "center" }}>
-              {projects.title}{" "}
-              <a
-                href={projects.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fa fa-github"></i>
-              </a>
             </div>
           </div>
         </div>
@@ -40,12 +45,11 @@ class Portfolio extends Component {
     });
 
     return (
-      <section id="portfolio">
+      <section id="projects">
         <Fade left duration={1000} distance="40px">
           <div className="row">
             <div className="twelve columns collapsed">
               <h1>Check Out Some of My Works:</h1>
-
               <div
                 id="portfolio-wrapper"
                 className="bgrid-quarters s-bgrid-thirds cf"

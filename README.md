@@ -1,27 +1,30 @@
-# Michael Hines - Personal Website
+# Michael Hines - Personal Portfolio Website
 
-This is my personal website built with React, showcasing my portfolio, skills, and experience. Visit the live site at [https://mhines2.github.io/Michael-Hines/](https://mhines2.github.io/Michael-Hines/)
+A modern, responsive personal portfolio website showcasing my skills, projects, and experience. Visit the live site at [https://mhines2.github.io/Michael-Hines/](https://mhines2.github.io/Michael-Hines/)
 
 ## Features
 
-- Responsive design that works on desktop and mobile
-- Portfolio section showcasing my projects with GitHub links
-- Skills section with proficiency levels
-- Education and work experience timeline
-- Contact form for easy communication
-- Dark mode aesthetic with modern UI
+- 🎨 Modern, responsive design with smooth animations
+- 🌙 Dark mode aesthetic with particle background
+- 📱 Mobile-friendly navigation
+- 📂 Project portfolio with live demos and GitHub links
+- 📊 Skills section with proficiency levels
+- 📚 Education and work experience timeline
+- 📧 Functional contact form using Formspree
+- 🔗 Social media integration (LinkedIn, GitHub)
+- 📄 Downloadable resume
 
 ## Technologies Used
 
-- React.js
-- HTML5/CSS3
-- JavaScript (ES6+)
-- React Reveal (for animations)
-- GitHub Pages (for hosting)
+- **Frontend Framework**: React.js
+- **Styling**: CSS3 with responsive design
+- **Animations**: React Reveal for scroll animations
+- **Background Effects**: Particles.js for interactive background
+- **Form Handling**: Formspree for serverless form submissions
+- **Deployment**: GitHub Pages
+- **Version Control**: Git
 
 ## Local Development
-
-To run this project locally:
 
 1. Clone the repository
 
@@ -36,13 +39,19 @@ cd Michael-Hines
 npm install --legacy-peer-deps
 ```
 
-3. Start the development server
+3. Create a `.env` file in the root directory and add your Formspree endpoint:
+
+```
+REACT_APP_FORMSPREE_ENDPOINT=your_formspree_endpoint_here
+```
+
+4. Start the development server
 
 ```bash
 npm start
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
 ## Deployment
 
@@ -54,6 +63,12 @@ npm run deploy
 
 ## Contact
 
-- Email: mthines2003@gmail.com
-- LinkedIn: [michael-hines21](https://linkedin.com/in/michael-hines21)
-- GitHub: [@mhines2](https://github.com/mhines2)
+Feel free to reach out for any opportunities or collaborations:
+
+- 📧 Email: mthines2003@gmail.com
+- 💼 LinkedIn: [michael-hines21](https://linkedin.com/in/michael-hines21)
+- 🐱 GitHub: [@mhines2](https://github.com/mhines2)
+
+## License
+
+This project is open source and available under the MIT License.

@@ -13,7 +13,7 @@
       "zip": ""
     },
     "website": "https://michael-hines.vercel.app",
-    "resumedownload": "/michael_hines_resume.pdf",
+    "resumedownload": "https://mhines2.github.io/Michael-Hines/michael_hines_resume.pdf",
     "social": [
       {
         "name": "linkedin",
@@ -120,7 +120,7 @@
     "projects": [
       {
         "title": "AI Personal Trainer",
-        "category": "Developing a trainer using ChatGPT API for personalized strength/weight training analysis.",
+        "category": "Currently developing a trainer using ChatGPT API for personalized strength/weight training analysis.",
         "image": "01.jpg",
         "url": "https://ai-personal-trainer1.streamlit.app/",
         "github": "https://github.com/mhines2/ai-personal-trainer"
@@ -143,7 +143,7 @@
         "title": "Personal Website",
         "category": "A personal website built with React, showcasing my skills, projects, and experience.",
         "image": "04.jpg",
-        "url": "https://github.com/mhines2/Michael-Hines",
+        "url": "https://mhines2.github.io/Michael-Hines/",
         "github": "https://github.com/mhines2/Michael-Hines"
       }
     ]

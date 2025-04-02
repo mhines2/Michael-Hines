@@ -10,6 +10,7 @@ class Header extends Component {
     const github = this.props.data.github;
     const name = this.props.data.name;
     const description = this.props.data.description;
+    const social = this.props.data.social;
 
     return (
       <header id="home">
@@ -43,7 +44,7 @@ class Header extends Component {
             </li>
 
             <li>
-              <a className="smoothscroll" href="#portfolio">
+              <a className="smoothscroll" href="#projects">
                 Projects
               </a>
             </li>
@@ -63,6 +64,28 @@ class Header extends Component {
             </Fade>
             <Fade bottom duration={1200}>
               <h3>{description}</h3>
+              <div className="social-links" style={{ marginTop: "20px" }}>
+                {social.map((network) => (
+                  <a
+                    key={network.name}
+                    href={network.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      margin: "0 10px",
+                      color: "#fff",
+                      fontSize: "24px",
+                      transition: "color 0.3s ease",
+                    }}
+                    onMouseOver={(e) =>
+                      (e.currentTarget.style.color = "#0762f9")
+                    }
+                    onMouseOut={(e) => (e.currentTarget.style.color = "#fff")}
+                  >
+                    <i className={network.className}></i>
+                  </a>
+                ))}
+              </div>
             </Fade>
             <hr />
           </div>

@@ -5,56 +5,64 @@ class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
-      success: false,
-      error: false,
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      status: "idle", // idle, submitting, success, error
+      errorMessage: "",
     };
   }
 
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
+
   handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submission started");
-    this.setState({ loading: true, success: false, error: false });
+    this.setState({ status: "submitting", errorMessage: "" });
 
     try {
-      const form = e.target;
-      console.log("Submitting to:", form.action);
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
+      const response = await fetch(process.env.REACT_APP_FORMSPREE_ENDPOINT, {
+        method: "POST",
         headers: {
-          Accept: "application/json",
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          name: this.state.name,
+          email: this.state.email,
+          subject: this.state.subject,
+          message: this.state.message,
+        }),
       });
 
-      console.log("Response status:", response.status);
-      const responseData = await response.json();
-      console.log("Response data:", responseData);
-
       if (response.ok) {
-        console.log("Submission successful");
-        this.setState({ loading: false, success: true });
-        form.reset();
+        this.setState({
+          status: "success",
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
       } else {
-        console.log("Submission failed");
-        this.setState({ loading: false, error: true });
+        const data = await response.json();
+        throw new Error(data.error || "Failed to send message");
       }
     } catch (error) {
-      console.error("Submission error:", error);
-      this.setState({ loading: false, error: true });
+      this.setState({
+        status: "error",
+        errorMessage:
+          error.message || "Something went wrong. Please try again.",
+      });
     }
   };
 
   render() {
     if (!this.props.data) return null;
 
-    const name = this.props.data.name;
-    const street = this.props.data.address.street;
-    const city = this.props.data.address.city;
-    const state = this.props.data.address.state;
-    const zip = this.props.data.address.zip;
-    const phone = this.props.data.phone;
-    const message = this.props.data.contactmessage;
+    const { name, address } = this.props.data;
+    const { status, errorMessage } = this.state;
 
     return (
       <section id="contact">
@@ -67,7 +75,7 @@ class Contact extends Component {
             </div>
 
             <div className="ten columns">
-              <p className="lead">{message}</p>
+              <p className="lead">{this.props.data.contactmessage}</p>
             </div>
           </div>
         </Fade>
@@ -75,63 +83,61 @@ class Contact extends Component {
         <div className="row">
           <Slide left duration={1000}>
             <div className="eight columns">
-              <form
-                action={process.env.REACT_APP_FORMSPREE_ENDPOINT}
-                method="POST"
-                id="contactForm"
-                name="contactForm"
-                onSubmit={this.handleSubmit}
-              >
+              <form onSubmit={this.handleSubmit} className="contact-form">
                 <fieldset>
                   <div>
-                    <label htmlFor="contactName">
+                    <label htmlFor="name">
                       Name <span className="required">*</span>
                     </label>
                     <input
                       type="text"
-                      defaultValue=""
-                      size="35"
-                      id="contactName"
+                      id="name"
                       name="name"
+                      value={this.state.name}
+                      onChange={this.handleChange}
                       required
+                      disabled={status === "submitting"}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="contactEmail">
+                    <label htmlFor="email">
                       Email <span className="required">*</span>
                     </label>
                     <input
                       type="email"
-                      defaultValue=""
-                      size="35"
-                      id="contactEmail"
-                      name="_replyto"
+                      id="email"
+                      name="email"
+                      value={this.state.email}
+                      onChange={this.handleChange}
                       required
+                      disabled={status === "submitting"}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="contactSubject">Subject</label>
+                    <label htmlFor="subject">Subject</label>
                     <input
                       type="text"
-                      defaultValue=""
-                      size="35"
-                      id="contactSubject"
+                      id="subject"
                       name="subject"
+                      value={this.state.subject}
+                      onChange={this.handleChange}
+                      disabled={status === "submitting"}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="contactMessage">
+                    <label htmlFor="message">
                       Message <span className="required">*</span>
                     </label>
                     <textarea
-                      cols="50"
-                      rows="15"
-                      id="contactMessage"
+                      id="message"
                       name="message"
+                      value={this.state.message}
+                      onChange={this.handleChange}
                       required
+                      disabled={status === "submitting"}
                     ></textarea>
                   </div>
 
@@ -139,29 +145,87 @@ class Contact extends Component {
                     <button
                       type="submit"
                       className="submit"
-                      disabled={this.state.loading}
+                      disabled={status === "submitting"}
+                      style={{
+                        backgroundColor:
+                          status === "submitting" ? "#666" : "#0d0d0d",
+                        color: "#fff",
+                        cursor: status === "submitting" ? "wait" : "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "10px",
+                        padding: "12px 20px",
+                        width: "auto",
+                        minWidth: "150px",
+                      }}
                     >
-                      {this.state.loading ? "Sending..." : "Submit"}
+                      {status === "submitting" ? (
+                        <>
+                          <i className="fa fa-spinner fa-spin"></i>
+                          <span>Sending...</span>
+                        </>
+                      ) : (
+                        "Send Message"
+                      )}
                     </button>
-                    {this.state.loading && (
-                      <span id="image-loader">
-                        <img alt="" src="images/loader.gif" />
-                      </span>
-                    )}
                   </div>
                 </fieldset>
               </form>
 
-              {this.state.error && (
-                <div id="message-warning">
-                  Something went wrong. Please try again.
+              {status === "submitting" && (
+                <div
+                  className="status-message"
+                  style={{
+                    color: "#666",
+                    marginTop: "20px",
+                    marginLeft: "26%",
+                    width: "65%",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <i className="fa fa-spinner fa-spin"></i>
+                  <span>Sending your message...</span>
                 </div>
               )}
-              {this.state.success && (
-                <div id="message-success">
-                  <i className="fa fa-check"></i>Your message was sent, thank
-                  you!
-                  <br />
+
+              {status === "error" && (
+                <div
+                  className="status-message"
+                  style={{
+                    color: "#ff4444",
+                    marginTop: "20px",
+                    marginLeft: "26%",
+                    width: "65%",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <i className="fa fa-exclamation-circle"></i>
+                  <span>{errorMessage}</span>
+                </div>
+              )}
+
+              {status === "success" && (
+                <div
+                  className="status-message"
+                  style={{
+                    color: "#4CAF50",
+                    marginTop: "20px",
+                    marginLeft: "26%",
+                    width: "65%",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <i className="fa fa-check-circle"></i>
+                  <span>
+                    Message sent successfully! I'll get back to you soon.
+                  </span>
                 </div>
               )}
             </div>
@@ -174,7 +238,7 @@ class Contact extends Component {
                 <p className="address">
                   {name}
                   <br />
-                  {city}, {state} {zip}
+                  {address.city}, {address.state}
                   <br />
                   <span>Email: mthines2003@gmail.com</span>
                 </p>
