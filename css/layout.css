@@ -226,8 +226,8 @@ ul#nav li.current a {
 }
 #about .profile-pic {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
   border-radius: 0;
   object-fit: cover;
   object-position: center;
