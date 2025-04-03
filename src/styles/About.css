@@ -17,12 +17,37 @@
   gap: 40px;
 }
 
+/* Remove padding from nested rows */
+#about .row .row {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Add consistent header styles */
+#about h2 {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+  padding-top: 0 !important;
+}
+
+/* Reset padding for contact details section */
+#about .contact-details {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+#about .contact-details h2 {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
 .slideshow-container {
   position: relative !important;
-  width: 800px !important;
-  height: 800px !important;
+  width: 500px !important;
+  height: 500px !important;
   overflow: hidden !important;
-  border-radius: 0 !important;
+  border-radius: 20px !important;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
   margin: 20px 0 !important;
   cursor: pointer;
@@ -48,9 +73,9 @@
   transform-origin: center center;
   will-change: transform;
   transform: scale(1.01);
-  border-radius: 0 !important; /* Force remove any border-radius */
-  margin: 0 !important; /* Remove any margins */
-  padding: 0 !important; /* Remove any padding */
+  border-radius: 20px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Default profile pic (index 0) */
@@ -127,54 +152,55 @@
 
 /* Adjust column widths to accommodate larger image */
 #about .three.columns {
-  width: 60% !important;
+  width: 45% !important;
   display: flex !important;
-  align-items: center !important;
+  align-items: flex-start !important;
   justify-content: flex-start !important;
   padding-left: 40px !important;
   margin: 0 !important;
 }
 
 #about .nine.columns {
-  width: 40%;
+  width: 55%;
   padding-right: 40px;
-  padding-top: 40px;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Update responsive breakpoints */
 @media only screen and (max-width: 1400px) {
   .slideshow-container {
-    width: 700px;
-    height: 700px;
+    width: 500px;
+    height: 500px;
   }
 
   #about .three.columns {
-    width: 55%;
+    width: 45%;
   }
 
   #about .nine.columns {
-    width: 45%;
+    width: 55%;
   }
 }
 
 @media only screen and (max-width: 1200px) {
   .slideshow-container {
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
   }
 }
 
 @media only screen and (max-width: 1024px) {
   .slideshow-container {
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
   }
 }
 
 @media only screen and (max-width: 768px) {
   .slideshow-container {
-    width: 100%;
-    height: 450px;
+    width: 300px;
+    height: 300px;
     margin: 20px auto;
   }
 
