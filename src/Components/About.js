@@ -1,18 +1,57 @@
 import React, { Component } from "react";
 import Fade from "react-reveal";
+import "../styles/About.css";
 
 class About extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentImageIndex: 0,
+      images: ["profilepic.jpg", "profilepic2.jpg", "profilepic3.jpg"],
+      isPaused: false,
+    };
+  }
+
+  componentDidMount() {
+    this.startSlideshow();
+  }
+
+  componentWillUnmount() {
+    this.stopSlideshow();
+  }
+
+  startSlideshow = () => {
+    this.interval = setInterval(() => {
+      if (!this.state.isPaused) {
+        this.setState((prevState) => ({
+          currentImageIndex:
+            (prevState.currentImageIndex + 1) % this.state.images.length,
+        }));
+      }
+    }, 3000);
+  };
+
+  stopSlideshow = () => {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  };
+
+  handleMouseEnter = () => {
+    this.setState({ isPaused: true });
+  };
+
+  handleMouseLeave = () => {
+    this.setState({ isPaused: false });
+  };
+
   render() {
     if (!this.props.data) return null;
 
     const name = this.props.data.name;
-    const profilepic = "images/" + this.props.data.image;
     const bio = this.props.data.bio;
-    const street = this.props.data.address.street;
     const city = this.props.data.address.city;
     const state = this.props.data.address.state;
-    const zip = this.props.data.address.zip;
-    const phone = this.props.data.phone;
     const email = this.props.data.email;
     const resumeDownload = this.props.data.resumedownload;
 
@@ -21,16 +60,44 @@ class About extends Component {
         <Fade duration={1000}>
           <div className="row">
             <div className="three columns">
-              <img
-                className="profile-pic"
-                src={profilepic}
-                alt="Nordic Giant Profile Pic"
-              />
+              <div
+                className="slideshow-container"
+                onMouseEnter={this.handleMouseEnter}
+                onMouseLeave={this.handleMouseLeave}
+              >
+                <img
+                  className={`profile-pic profile-pic-${this.state.currentImageIndex}`}
+                  src={`images/${
+                    this.state.images[this.state.currentImageIndex]
+                  }`}
+                  alt={`${name}'s Profile`}
+                />
+                <div className="slideshow-dots">
+                  {this.state.images.map((_, index) => (
+                    <span
+                      key={index}
+                      className={`dot ${
+                        index === this.state.currentImageIndex ? "active" : ""
+                      }`}
+                      onClick={() =>
+                        this.setState({ currentImageIndex: index })
+                      }
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
             <div className="nine columns main-col">
               <h2>About Me</h2>
-
-              <p>{bio}</p>
+              {bio.split("\n\n").map((paragraph, index) => (
+                <p key={index}>
+                  {paragraph
+                    .split("*")
+                    .map((text, i) =>
+                      i % 2 === 0 ? text : <em key={i}>{text}</em>
+                    )}
+                </p>
+              ))}
               <div className="row">
                 <div className="columns contact-details">
                   <h2>Contact Details</h2>
