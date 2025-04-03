@@ -127,7 +127,7 @@
       },
       {
         "title": "Wordle Web Application",
-        "category": "A Wordle-inspired game using Python, Django, JavaScript, HTML, and CSS, featuring user authentication, gameplay mechanics, player dashboard, and in-game purchases.",
+        "category": "A Wordle-inspired game built with Python, Django, JavaScript, and HTML/CSS, featuring user authentication, gameplay, a player dashboard, and in-game purchases.",
         "image": "02.jpg",
         "url": "https://github.com/mhines2/worNDly",
         "github": "https://github.com/mhines2/worNDly"
