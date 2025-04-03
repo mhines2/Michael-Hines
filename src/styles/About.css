@@ -165,6 +165,35 @@
   padding-right: 40px;
   padding-top: 0 !important;
   margin-top: 0 !important;
+  padding-left: 0 !important; /* Reset any left padding */
+}
+
+/* Force consistent header alignment */
+#about .nine.columns > h2,
+#about .contact-details h2 {
+  padding: 0 !important;
+  margin: 0 0 20px 0 !important;
+  text-align: left !important;
+}
+
+/* Reset nested row and columns */
+#about .row .row {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+#about .columns.contact-details {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove grid system for contact section */
+#about .contact-details {
+  width: 100% !important;
+  max-width: none !important;
+  float: none !important;
+  clear: both !important;
 }
 
 /* Update responsive breakpoints */
@@ -215,4 +244,21 @@
     width: 100%;
     padding: 0;
   }
+}
+
+.columns.download {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.columns.download .button {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+}
+
+.columns.download .button i {
+  margin: 0;
 }
