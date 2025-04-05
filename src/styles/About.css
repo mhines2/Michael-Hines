@@ -199,8 +199,8 @@
 /* Update responsive breakpoints */
 @media only screen and (max-width: 1400px) {
   .slideshow-container {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
   }
 
   #about .three.columns {
@@ -214,35 +214,102 @@
 
 @media only screen and (max-width: 1200px) {
   .slideshow-container {
-    width: 400px;
-    height: 400px;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .slideshow-container {
     width: 350px;
     height: 350px;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .slideshow-container {
     width: 300px;
     height: 300px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .slideshow-container {
+    width: 250px;
+    height: 250px;
     margin: 20px auto;
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  .profile-pic {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    visibility: visible !important;
   }
 
   #about .row {
     flex-direction: column;
     padding: 20px;
     gap: 20px;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
   }
 
-  #about .three.columns,
+  #about .three.columns {
+    width: 100% !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
   #about .nine.columns {
-    width: 100%;
-    padding: 0;
+    width: 100% !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  #about .nine.columns > h2,
+  #about .contact-details h2 {
+    text-align: center !important;
+  }
+
+  #about .contact-details {
+    text-align: center;
+  }
+
+  .columns.download {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .columns.download .button {
+    width: auto;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .slideshow-container {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+  }
+
+  .profile-pic {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  #about {
+    padding: 20px 0;
+  }
+
+  #about .row {
+    padding: 10px;
   }
 }
 

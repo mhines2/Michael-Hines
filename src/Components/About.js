@@ -67,7 +67,7 @@ class About extends Component {
               >
                 <img
                   className={`profile-pic profile-pic-${this.state.currentImageIndex}`}
-                  src={`images/${
+                  src={`${process.env.PUBLIC_URL}/images/${
                     this.state.images[this.state.currentImageIndex]
                   }`}
                   alt={`${name}'s Profile`}
