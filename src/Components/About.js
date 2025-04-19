@@ -28,7 +28,7 @@ class About extends Component {
             (prevState.currentImageIndex + 1) % this.state.images.length,
         }));
       }
-    }, 5000);
+    }, 15000);
   };
 
   stopSlideshow = () => {
